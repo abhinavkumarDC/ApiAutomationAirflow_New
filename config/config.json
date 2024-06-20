@@ -1,0 +1,13 @@
+{
+    "token_url" : "https://betaapi.1984.rocks/api/token/",
+    "username": "DATACULTR",
+    "password": "DC#DATA%@CULTR$&",
+    "api_create_urls": {
+        "Loan_Wallpaper_Block": "https://betaapi.1984.rocks/api/v2/lifecycle/dem_DATACULTR/createnewpolicy/",
+        "Application_Block": "https://betaapi.1984.rocks/api/v2/lifecycle/dem_DATACULTR/createnewpolicy/",
+        "Call_Barring": "https://betaapi.1984.rocks/api/v2/lifecycle/dem_DATACULTR/createnewpolicy/",
+        "get_Notification": "https://stagefirebase.1984.rocks/notification?page=1&size=100",
+        "post_notification": "https://stagefirebase.1984.rocks/notification/push_bulk_csv"
+    },
+    "output_dir": "/home/abhinavkumar/PycharmProjects/ApiAutomationAirflow/Output/Nudges"
+}
