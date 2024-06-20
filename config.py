@@ -13,5 +13,6 @@ class Config:
         self.api_create_urls = config_data['api_create_urls']
         self.api_get_all_notification_url = config_data['api_get_all_notification_url']
         self.api_get_notification_url = config_data['api_get_notification_url']
+        self.get_passcode_url = config_data['get_passcode_url']
         self.output_dir = config_data['output_dir']
         print("Configuration loaded successfully")

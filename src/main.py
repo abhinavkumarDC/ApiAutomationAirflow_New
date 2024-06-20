@@ -4,11 +4,13 @@ from utils.helpers import Helpers
 from apis.get_All_NotificationNew import GetAllNotification
 from apis.get_Notification import GetNotification
 from apis.create_Notification import CreateNotification
+from apis.get_passcode import Get_Passcode
 from config import Config
 
 
 class NotificationManager:
     def __init__(self, config):
+        self.get_passcode_url = None
         print("Initializing NotificationManager")
         self.token_url = config.token_url
         self.api_create_urls = config.api_create_urls
@@ -16,6 +18,7 @@ class NotificationManager:
         self.api_get_notification_url = config.api_get_notification_url
         self.username = config.username
         self.password = config.password
+        self.get_passcode_url = config.get_passcode_url
         self.output_dir = config.output_dir
         self.token = None
         print("NotificationManager initialized")
@@ -50,6 +53,12 @@ class NotificationManager:
             create_notification.fetch_and_store_created_notification_data()
             print(f"Notification created for type: {notification_type}")
 
+    def run_get_passcode(self):
+        print("receive passcode api")
+        get_passcode = Get_Passcode(self.get_passcode_url, self.token)
+        get_passcode.send_passkey_for_pin_unlock()
+        print("received passcode for passkey")
+
     def ensure_output_directory(self):
         print("Ensuring output directory")
         Helpers.ensure_output_directory(self.output_dir)
@@ -72,6 +81,7 @@ def main():
     manager.run_get_notification()
     manager.run_get_all_notification()
     manager.run_create_notification()
+    manager.run_get_passcode()
     print("All operations completed")
 
 
