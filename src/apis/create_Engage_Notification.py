@@ -11,6 +11,7 @@ class CreateNotification:
         self.token = token
         self.notification_type = notification_type
         self.output_dir = output_dir
+        self.helpers = Helpers()
 
     def create_engage_notification_from_api(self):
         print(f"Creating engage notification for type: {self.notification_type}")
@@ -82,3 +83,6 @@ class CreateNotification:
             Helpers.store_data_as_json(data, json_filename)
             Helpers.store_data_as_csv(data, csv_filename)
             print(f"Created notification data stored for type: {self.notification_type}")
+        else:
+            print(f"No data fetched for {self.notification_type}")
+

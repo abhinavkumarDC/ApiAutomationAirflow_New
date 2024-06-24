@@ -1,15 +1,19 @@
 {
-    "token_url": "https://betaapi.1984.rocks/api/token/",
-        "username": "DATACULTR",
-        "password": "DC#DATA%@CULTR$&",
-    "api_create_urls": {
-      "Alert": "https://stagefirebase.1984.rocks/notification/alert",
-      "Banner": "https://stagefirebase.1984.rocks/notification/banner",
-      "plain_With_Action": "https://stagefirebase.1984.rocks/notification/plain_with_action",
-      "plain": "https://stagefirebase.1984.rocks/notification/plain"
-    },
-    "api_get_all_notification_url": "https://betaapi.1984.rocks/api/v2/lifecycle/dem_DATACULTR/get_all_notification/",
-    "api_get_notification_url": "https://stagefirebase.1984.rocks/notification?page=1&size=600",
+  "token_url": "https://betaapi.1984.rocks/api/token/",
+  "username": "DATACULTR",
+  "password": "DC#DATA%@CULTR$&",
+  "api_create_urls": {
+    "Alert": "https://stagefirebase.1984.rocks/notification/alert",
+    "Banner": "https://stagefirebase.1984.rocks/notification/banner",
+    "plain_With_Action": "https://stagefirebase.1984.rocks/notification/plain_with_action",
+    "plain": "https://stagefirebase.1984.rocks/notification/plain"
+  },
+  "api_get_all_notification_url": "https://betaapi.1984.rocks/api/v2/lifecycle/dem_DATACULTR/get_all_notification/",
+  "api_get_notification_url": "https://stagefirebase.1984.rocks/notification?page=1&size=600",
+  "api_applyNotificationBulk_url": "https://betaapi.1984.rocks/api/v3/lifecycle/dem_DATACULTR/applynotificationbulk_v4/",
+  "api_push_bulk_csv_url": "https://stagefirebase.1984.rocks/notification/push_bulk_csv",
+  "api_bulk_custom_notification_v4_url": "https://betaapi.1984.rocks/api/v3/lifecycle/dem_DATACULTR/bulk_custom_notification_v4/",
+  "input_dir": "/home/abhinavkumar/PycharmProjects/ApiAutomationAirflow/input_file_csv",
   "output_dir": "/home/abhinavkumar/PycharmProjects/ApiAutomationAirflow/Output"
 }
 
