@@ -21,9 +21,10 @@ class Get_Passcode:
         }
 
         response = requests.post(self.get_passcode_url, json=payload, headers=headers)
+
         print(f"Sending post request to {self.get_passcode_url} with the payload of passkey{payload}")
         if response.status_code == 200:
-            print("POST request successful")
+            print("passcode request successful")
             return response.json()
         elif response.status_code == 406:
             print(f"Post request failed with status code 406 {response.text}")
