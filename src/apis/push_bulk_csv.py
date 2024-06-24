@@ -5,7 +5,7 @@ from utils.helpers import Helpers
 class PushBulkCsv:
     def __init__(self, config, token):
         self.fetch_api_url = config.api_get_all_notification_url
-        self.post_api_url = config.api_push_bulk_csv
+        self.post_api_url = config.api_push_bulk_csv_url
         self.token = token
         self.input_dir = config.input_dir
         self.output_dir = config.output_dir

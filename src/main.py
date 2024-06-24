@@ -91,11 +91,11 @@ def main():
     manager.ensure_output_directory()
 
     # Run desired operations
-    # manager.run_get_notification()
+    manager.run_get_notification()
     manager.run_get_all_notification()
-    # manager.run_create_notification()
-    # manager.run_apply_notification_bulk()
-    # manager.run_push_bulk_csv()
+    manager.run_create_notification()
+    manager.run_apply_notification_bulk()
+    manager.run_push_bulk_csv()
     manager.run_api_bulk_custom_notification_v4()
     print("All operations completed")
 
