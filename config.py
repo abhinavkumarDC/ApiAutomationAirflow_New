@@ -23,5 +23,8 @@ class Config:
         self.current_status_url = config_data['current_status_url']
         self.device_logs_url = config_data['device_logs_url']
         self.last_online_status_url = config_data['last_online_status_url']
+        self.get_all_nudges_url = config_data['get_all_nudges_url']
+        self.create_nudge_url = config_data['create_nudge_url']
+        self.apply_unlock_url = config_data['apply_unlock_url']
         self.output_dir = config_data['output_dir']
         print("Configuration loaded successfully")

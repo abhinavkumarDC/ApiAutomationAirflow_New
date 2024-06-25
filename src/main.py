@@ -1,5 +1,3 @@
-import os
-
 from src.apis.cancel_release import Cancel_release
 from utils.token import TokenManager
 from utils.helpers import Helpers
@@ -14,6 +12,9 @@ from apis.registeration_report import Registration_report
 from apis.current_status import Current_status_report
 from apis.device_logs import Device_logs
 from apis.last_online import Last_online_status
+from src.apis.create_nudge.get_all_nudges import Get_all_Nudges
+from src.apis.create_nudge.create_All_Nudges import Create_nudges
+from src.apis.applyunlock import Apply_unlock
 from config import Config
 
 
@@ -36,9 +37,13 @@ class OdysseyManager:
         self.current_status_url = config.current_status_url
         self.device_logs_url = config.device_logs_url
         self.last_online_status_url = config.last_online_status_url
+        self.get_all_nudges_url = config.get_all_nudges_url
+        self.create_nudge_url = config.create_nudge_url
+        self.apply_unlock_url = config.apply_unlock_url
         self.output_dir = config.output_dir
         self.token = None
         self.transaction_id = None
+        self.nudge_type = None
         print("OdysseyManager initialized")
 
     def generate_token(self):
@@ -62,6 +67,24 @@ class OdysseyManager:
         get_notification = GetNotification(self.api_get_notification_url, self.token, self.output_dir)
         get_notification.fetch_and_store_get_notification_data()
         print("Get notification completed")
+
+    def run_get_all_nudges(self):
+        print("get the details of all nudges")
+        get_all_nudge = Get_all_Nudges(self.get_all_nudges_url, self.token)
+        get_all_nudge.fetch_data_from_api()
+        print("received details of all nudges")
+
+    def run_create_nudges(self):
+        print("create nudges")
+        create_nudges = Create_nudges(self.create_nudge_url, self.token, self.nudge_type)
+        create_nudges.create_nudges_from_api()
+        print("created nudges successfully")
+
+    def run_apply_unlock(self):
+        print("apply unlock on device")
+        apply_unlock = Apply_unlock(self.apply_unlock_url, self.token)
+        apply_unlock.send_imei_for_unlock()
+        print("device is unlocked successfully")
 
     def run_create_notification(self):
         print("Running create notification")
@@ -98,7 +121,7 @@ class OdysseyManager:
 
     def run_device_status(self):
         print("get the details of apply action on device.")
-        device_status= Device_status(self.device_status_url)
+        device_status = Device_status(self.device_status_url)
         device_status.device_Status_of_imei()
         print("received the details of last action on device.")
 
@@ -156,7 +179,10 @@ def main():
     #manager.run_registeration_file()
     #manager.run_current_status()
     #manager.run_device_log()
-    manager.run_last_online()
+    #manager.run_get_all_nudges()
+    #manager.run_create_nudges()
+    manager.run_apply_unlock()
+    #manager.run_last_online()
     print("All operations completed")
 
 

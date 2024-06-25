@@ -20,6 +20,9 @@
     "current_status_url": "https://recordstage.1984.rocks/search/v2/current_status_list/118/",
     "device_logs_url": "https://recordstage.1984.rocks/search/v2/deviceloghistory/",
     "last_online_status_url": "https://recordstage.1984.rocks/search/v1/get_last_online/",
+    "get_all_nudges_url": "https://betaapi.1984.rocks/api/v3/lifecycle/dem_DATACULTR/get_all_nudges/",
+    "create_nudge_url": "https://betaapi.1984.rocks/api/v2/lifecycle/dem_DATACULTR/createnewpolicy/",
+    "apply_unlock_url": "https://betaapi.1984.rocks/api/v2/lifecycle/dem_DATACULTR/applyunlock/",
     "output_dir": "/home/akshat/PyCharm Projects/ApiAutomationAirflow_New/Output"
 }
 
