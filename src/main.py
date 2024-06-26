@@ -11,7 +11,7 @@ from config import Config
 
 class NotificationManager:
     def __init__(self, config):
-        print("Initializing NotificationManager")
+        print("Initializing Main File- NotificationManager")
         self.config = config
         self.token_url = config.token_url
         self.api_create_urls = config.api_create_urls
@@ -25,11 +25,12 @@ class NotificationManager:
         self.input_dir = config.input_dir
         self.output_dir = config.output_dir
         self.token = None
-        print("NotificationManager initialized")
+
+    # print("NotificationManager initialized")
 
     def generate_token(self):
         if self.token is None:
-            print("Generating token")
+            # print("Generating token")
             self.token = TokenManager.generate_token(self.token_url, self.username, self.password)
             if self.token is None:
                 print("Failed to obtain token. Exiting.")
@@ -38,24 +39,24 @@ class NotificationManager:
         return True
 
     def run_get_all_notification(self):
-        print("Running get all notification")
+        # print("Running get all notification")
         get_all_notification = GetAllNotification(self.api_get_all_notification_url, self.token, self.output_dir)
         get_all_notification.fetch_and_store_get_all_notification_data()
-        print("Get all notification completed")
+        print("Get All notification api executed and data stored in provided directory")
 
     def run_get_notification(self):
-        print("Running get notification")
+        # print("Running get notification")
         get_notification = GetNotification(self.api_get_notification_url, self.token, self.output_dir)
         get_notification.fetch_and_store_get_notification_data()
-        print("Get notification completed")
+        print("Get notification api executed and data stored in provided directory")
 
     def run_create_notification(self):
-        print("Running create notification")
+        # print("Running create notification")
         for notification_type, api_create_url in self.api_create_urls.items():
-            print(f"Creating notification for type: {notification_type}")
+            # print(f"Creating notification for type: {notification_type}")
             create_notification = CreateNotification(api_create_url, self.token, notification_type, self.output_dir)
             create_notification.fetch_and_store_created_notification_data()
-            print(f"Notification created for type: {notification_type}")
+            # print(f"Notification created for type: {notification_type}")
 
     def run_apply_notification_bulk(self):
         print("Running apply notification bulk")
@@ -73,9 +74,9 @@ class NotificationManager:
         bulk_custom_notification_v4.run()
 
     def ensure_output_directory(self):
-        print("Ensuring output directory")
+        # print("Ensuring output directory")
         Helpers.ensure_output_directory(self.output_dir)
-        print("Output directory ensured")
+        # print("Output directory ensured")
 
 
 def main():
@@ -91,13 +92,13 @@ def main():
     manager.ensure_output_directory()
 
     # Run desired operations
-    manager.run_get_notification()
-    manager.run_get_all_notification()
-    manager.run_create_notification()
-    manager.run_apply_notification_bulk()
-    manager.run_push_bulk_csv()
+    # manager.run_get_notification()
+    # manager.run_get_all_notification()
+    # manager.run_create_notification()
+    # manager.run_apply_notification_bulk()
+    # manager.run_push_bulk_csv()
     manager.run_api_bulk_custom_notification_v4()
-    print("All operations completed")
+    print(f"--\nAll operations completed")
 
 
 if __name__ == '__main__':

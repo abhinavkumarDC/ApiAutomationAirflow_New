@@ -27,18 +27,18 @@ class BulkCustomNotification:
         self.helpers.ensure_output_directory(self.output_dir)
 
     def run(self):
-        print("Starting the process...")
+        # print("Starting the process...")
 
         # Ensure output directory exists
         self.ensure_output_directory()
 
         for attempt in range(4):
-            print(f"\nAttempt {attempt + 1}: Fetching and storing notification data...")
+            # print(f"\nAttempt {attempt + 1}: Fetching and storing notification data...")
             # Fetch and store data, and get random notification code
             random_notification_code = self.fetch_and_store_get_notification_data()
             if random_notification_code:
                 self.tried_notification_codes.append(random_notification_code)
-                print(f"Attempt {attempt + 1}: Random notification code: {random_notification_code}")
+                # print(f"Attempt {attempt + 1}: Random notification code: {random_notification_code}")
 
                 # Generate a new TransactionId
                 transaction_id = self.helpers.generate_random_transaction_id()
@@ -57,7 +57,7 @@ class BulkCustomNotification:
                 print("Failed to get a valid notification code")
                 break
 
-        print("Process completed.")
-        print("Notification codes tried:")
+        # print("Process completed.")
+        print("Below are the notification codes using which tried:")
         for code in self.tried_notification_codes:
             print(code)

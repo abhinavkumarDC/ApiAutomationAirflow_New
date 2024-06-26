@@ -18,4 +18,4 @@ class Config:
         self.api_bulk_custom_notification_v4_url = config_data['api_bulk_custom_notification_v4_url']
         self.input_dir = config_data['input_dir']
         self.output_dir = config_data['output_dir']
-        print("Configuration loaded successfully")
+        # print("Configuration loaded successfully")

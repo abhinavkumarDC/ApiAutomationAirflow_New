@@ -4,7 +4,7 @@ import requests
 class TokenManager:
     @staticmethod
     def generate_token(token_url, username, password):
-        print("Generating token inside TokenManager")
+        # print("Generating token inside TokenManager")
         payload = {
             'username': username,
             'password': password
@@ -16,7 +16,7 @@ class TokenManager:
 
         if response.status_code == 200:
             token_data = response.json()
-            print("Token generated successfully inside TokenManager.")
+            # print("Token generated successfully")
             return token_data['access']
         else:
             print(f"Failed to fetch token: {response.status_code}")

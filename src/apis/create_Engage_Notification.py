@@ -6,7 +6,7 @@ import os
 
 class CreateNotification:
     def __init__(self, create_url, token, notification_type, output_dir):
-        print(f"Initializing CreateNotification for type: {notification_type}")
+        print(f"--\nInitializing create notification API for message type: {notification_type}")
         self.create_url = create_url
         self.token = token
         self.notification_type = notification_type
@@ -14,7 +14,7 @@ class CreateNotification:
         self.helpers = Helpers()
 
     def create_engage_notification_from_api(self):
-        print(f"Creating engage notification for type: {self.notification_type}")
+        # print(f"Creating {self.notification_type} type notification for engage")
         headers = {
             'Content-Type': 'application/json',
             'Authorization': f'Bearer {self.token}'
@@ -27,7 +27,7 @@ class CreateNotification:
 
         response = requests.post(self.create_url, json=payload, headers=headers)
         if response.status_code == 200:
-            print(f"Notification created successfully for type: {self.notification_type}")
+            # print(f"Notification created successfully for type: {self.notification_type}")
             return response.json()
         else:
             print(f"Failed to create notification: {response.status_code}")
@@ -35,7 +35,7 @@ class CreateNotification:
             return None
 
     def get_payload(self):
-        print(f"Generating payload for type: {self.notification_type}")
+        # print(f"Generating payload for type: {self.notification_type}")
         random_number = random.randint(1, 1000)
         payloads = {
             'Alert': {
@@ -75,14 +75,14 @@ class CreateNotification:
         return payloads.get(self.notification_type)
 
     def fetch_and_store_created_notification_data(self):
-        print(f"Fetching and storing created notification data for type: {self.notification_type}")
+        # print(f"Fetching and storing created notification data for type: {self.notification_type}")
         data = self.create_engage_notification_from_api()
         if data:
             json_filename = os.path.join(self.output_dir, f'{self.notification_type}CreateNotificationData.json')
             csv_filename = os.path.join(self.output_dir, f'{self.notification_type}CreateNotificationData.csv')
             Helpers.store_data_as_json(data, json_filename)
             Helpers.store_data_as_csv(data, csv_filename)
-            print(f"Created notification data stored for type: {self.notification_type}")
+            print(f"Engage notification created and data stored for type: {self.notification_type}")
         else:
             print(f"No data fetched for {self.notification_type}")
 

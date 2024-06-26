@@ -11,7 +11,7 @@ class PushBulkCsv:
         self.output_dir = config.output_dir
         self.tried_notification_codes = []
         self.helpers = Helpers()
-        self.input_csv_file_path = os.path.join(self.input_dir, 'common_push_bulk_csv.csv')
+        self.input_csv_file_path = os.path.join(self.input_dir, 'Message_File_with_sample_data.csv')
 
     def fetch_and_store_get_notification_data(self):
         data = self.helpers.fetch_data_from_api(self.fetch_api_url, self.token)

@@ -11,25 +11,27 @@ class Helpers:
     def ensure_output_directory(directory):
         if not os.path.exists(directory):
             os.makedirs(directory)
-        print(f"Output directory ensured at: {directory}")
+        # print(f"Output directory ensured at: {directory}")
 
     @staticmethod
     def store_data_as_json(data, filename):
-        print(f"Storing data as JSON in {filename}")
+        # print(f"Storing data as JSON in {filename}")
         with open(filename, 'w') as f:
             json.dump(data, f, indent=4)
-        print(f"Data stored as JSON in {filename}")
+        # print(f"Data stored as JSON in {filename}")
+        print(f"Data stored as JSON in provided directory")
 
     @staticmethod
     def store_data_as_csv(data, filename):
-        print(f"Storing data as CSV in {filename}")
+        # print(f"Storing data as CSV in {filename}")
         if isinstance(data, dict):
             data = [data]
         elif not isinstance(data, list):
             raise ValueError("Data should be a list or dictionary to store as CSV")
         df = pd.DataFrame(data)
         df.to_csv(filename, index=False)
-        print(f"Data stored as CSV in {filename}")
+        # print(f"Data stored as CSV in {filename}")
+        print(f"Data stored as csv in provided directory")
 
     @staticmethod
     def get_random_notification_code(data):
@@ -77,7 +79,7 @@ class Helpers:
         }
         data = {
             # 'notification_code': notification_code # push_bulk_csv.py
-            'code': notification_code,
+            'notification_code': notification_code,
             'TransactionId': transaction_id
         }
         print(f"Sending POST request to {api_url} with TransactionId: {transaction_id} and file: {files}")
