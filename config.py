@@ -26,5 +26,12 @@ class Config:
         self.get_all_nudges_url = config_data['get_all_nudges_url']
         self.create_nudge_url = config_data['create_nudge_url']
         self.apply_unlock_url = config_data['apply_unlock_url']
+        self.bulk_unlock_url = config_data['bulk_unlock_url']
+        self.unlock_csv_file_path = config_data['unlock_csv_file_path']
+        self.bulk_lock_url = config_data['bulk_lock_url']
+        self.lock_csv_file = config_data['lock_csv_file']
+        self.get_nudge_url = config_data['get_nudge_url']
+        self.bulk_apply_nudge_url = config_data['bulk_apply_nudge_url']
+        self.nudge_csv_file = config_data['nudge_csv_file']
         self.output_dir = config_data['output_dir']
         print("Configuration loaded successfully")

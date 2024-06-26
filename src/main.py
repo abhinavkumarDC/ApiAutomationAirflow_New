@@ -15,6 +15,10 @@ from apis.last_online import Last_online_status
 from src.apis.create_nudge.get_all_nudges import Get_all_Nudges
 from src.apis.create_nudge.create_All_Nudges import Create_nudges
 from src.apis.applyunlock import Apply_unlock
+from apis.bulkApplyUnlock import Bulk_unlock
+from apis.bulk_apply_lock import Bulk_apply_lock
+from apis.get_nudges import Get_nudges
+from apis.bulk_apply_nudge import Apply_bulk_nudge
 from config import Config
 
 
@@ -40,10 +44,18 @@ class OdysseyManager:
         self.get_all_nudges_url = config.get_all_nudges_url
         self.create_nudge_url = config.create_nudge_url
         self.apply_unlock_url = config.apply_unlock_url
+        self.bulk_unlock_url = config.bulk_unlock_url
+        self.unlock_csv_file_path = config.unlock_csv_file_path
+        self.bulk_lock_url = config.bulk_lock_url
+        self.lock_csv_file = config.lock_csv_file
+        self.get_nudge_url = config.get_nudge_url
+        self.bulk_apply_nudge_url = config.bulk_apply_nudge_url
+        self.nudge_csv_file = config.nudge_csv_file
         self.output_dir = config.output_dir
         self.token = None
         self.transaction_id = None
         self.nudge_type = None
+        self.policy_code = None
         print("OdysseyManager initialized")
 
     def generate_token(self):
@@ -74,6 +86,17 @@ class OdysseyManager:
         get_all_nudge.fetch_data_from_api()
         print("received details of all nudges")
 
+    def run_get_nudges(self):
+        print("Get nudges request")
+        get_nudge = Get_nudges(self.get_nudge_url, self.token)
+        get_nudge.get_nudges()
+        print("received nudges")
+
+    def run_apply_bulk_nudge(self):
+        print("apply bulk nudges on imei")
+        apply_bulk_nudge = Apply_bulk_nudge(self.get_nudge_url, self.bulk_apply_nudge_url, self.policy_code, self.nudge_csv_file, self.transaction_id, self.token)
+        apply_bulk_nudge.send_nudge_with_csv()
+        print("applied nudges on devices")
     def run_create_nudges(self):
         print("create nudges")
         create_nudges = Create_nudges(self.create_nudge_url, self.token, self.nudge_type)
@@ -85,6 +108,19 @@ class OdysseyManager:
         apply_unlock = Apply_unlock(self.apply_unlock_url, self.token)
         apply_unlock.send_imei_for_unlock()
         print("device is unlocked successfully")
+
+    def run_bulk_unlock_devices(self):
+        print("unlock the devices in bulk")
+        bulk_unlock = Bulk_unlock(self.bulk_unlock_url, self.token, self.unlock_csv_file_path,
+                                  self.transaction_id)
+        bulk_unlock.bulk_apply_unlock()
+        print("unlock all the imei")
+
+    def run_bulk_lock_devices(self):
+        print("bulk lock has been triggered on devices")
+        bulk_lock = Bulk_apply_lock(self.bulk_lock_url, self.token, self.lock_csv_file, self.transaction_id)
+        bulk_lock.apply_bulk_lock_v3()
+        print("bulk lock has been applied on device")
 
     def run_create_notification(self):
         print("Running create notification")
@@ -181,7 +217,11 @@ def main():
     #manager.run_device_log()
     #manager.run_get_all_nudges()
     #manager.run_create_nudges()
-    manager.run_apply_unlock()
+    #manager.run_apply_unlock()
+    #manager.run_bulk_unlock_devices()
+    #manager.run_get_nudges()
+    manager.run_apply_bulk_nudge()
+    #manager.run_bulk_lock_devices()
     #manager.run_last_online()
     print("All operations completed")
 

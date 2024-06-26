@@ -23,6 +23,13 @@
     "get_all_nudges_url": "https://betaapi.1984.rocks/api/v3/lifecycle/dem_DATACULTR/get_all_nudges/",
     "create_nudge_url": "https://betaapi.1984.rocks/api/v2/lifecycle/dem_DATACULTR/createnewpolicy/",
     "apply_unlock_url": "https://betaapi.1984.rocks/api/v2/lifecycle/dem_DATACULTR/applyunlock/",
+    "bulk_unlock_url": "https://betaapi.1984.rocks/api/v3/lifecycle/dem_DATACULTR/bulkapplyunlock/",
+    "unlock_csv_file_path" : "/home/akshat/PyCharm Projects/ApiAutomationAirflow_New/input_file_csv/Release_File.csv",
+    "bulk_lock_url" : "https://betaapi.1984.rocks/api/v3/lifecycle/dem_DATACULTR/bulkapplylock/",
+    "lock_csv_file" : "/home/akshat/PyCharm Projects/ApiAutomationAirflow_New/input_file_csv/Release_File.csv",
+    "get_nudge_url" : "https://betaapi.1984.rocks/api/v2/lifecycle/dem_DATACULTR/get_nudges/",
+    "bulk_apply_nudge_url" : "https://betaapi.1984.rocks/api/v2/lifecycle/dem_DATACULTR/bulkapplynudge/",
+    "nudge_csv_file" : "/home/akshat/PyCharm Projects/ApiAutomationAirflow_New/input_file_csv/Release_File.csv",
     "output_dir": "/home/akshat/PyCharm Projects/ApiAutomationAirflow_New/Output"
 }
 

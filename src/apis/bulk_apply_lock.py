@@ -1,31 +1,25 @@
 import pandas as pd
 import requests
 import json
-import os
-import time
-import uuid
 
 
-class Bulk_release_devices:
-    def __init__(self, bulk_release_url, token, release_csv_file_path, transaction_id):
-        self.bulk_release_url = bulk_release_url
+class Bulk_apply_lock:
+    def __init__(self, bulk_lock_url, token, lock_csv_file, transaction_id):
+        self.bulk_lock_url = bulk_lock_url
         self.token = token
-        self.release_csv_file_path = release_csv_file_path
+        self.lock_csv_file = lock_csv_file
         self.transaction_id = transaction_id
 
-    def send_device_data_in_csv(self):
+    def apply_bulk_lock_v3(self):
         headers = {
             'Authorization': f'Bearer {self.token}'
         }
         files = {
-            'file': open(self.release_csv_file_path, 'rb'),
-            'TransactionId': str(uuid.uuid4())
+            'file': open(self.lock_csv_file, 'rb'),
+            'TransactionId': self.transaction_id
         }
-        # data = {
-        #     'TransactionId': self.transaction_id
-        # }
-        print(f"Sending PUT request to {self.bulk_release_url} with TransactionId: {self.transaction_id}")
-        response = requests.put(self.bulk_release_url, headers=headers, files=files)
+        print(f"Sending PUT request to {self.bulk_lock_url} with TransactionId: {self.transaction_id}")
+        response = requests.put(self.bulk_lock_url, headers=headers, files=files)
         if response.status_code == 200:
             print("PUT request successful")
             try:

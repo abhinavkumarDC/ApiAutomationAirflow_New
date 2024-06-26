@@ -6,26 +6,26 @@ import time
 import uuid
 
 
-class Bulk_release_devices:
-    def __init__(self, bulk_release_url, token, release_csv_file_path, transaction_id):
-        self.bulk_release_url = bulk_release_url
+class Bulk_unlock:
+    def __init__(self, bulk_unlock_url, token, unlock_csv_file_path, transaction_id ):
+        self.bulk_unlock_url = bulk_unlock_url
         self.token = token
-        self.release_csv_file_path = release_csv_file_path
+        self.unlock_csv_file_path = unlock_csv_file_path
         self.transaction_id = transaction_id
 
-    def send_device_data_in_csv(self):
+    def bulk_apply_unlock(self):
         headers = {
             'Authorization': f'Bearer {self.token}'
         }
         files = {
-            'file': open(self.release_csv_file_path, 'rb'),
-            'TransactionId': str(uuid.uuid4())
+            'file': open(self.unlock_csv_file_path, 'rb'),
+            'TransactionId': self.transaction_id
         }
         # data = {
-        #     'TransactionId': self.transaction_id
+        #     'TransactionId': transaction_id
         # }
-        print(f"Sending PUT request to {self.bulk_release_url} with TransactionId: {self.transaction_id}")
-        response = requests.put(self.bulk_release_url, headers=headers, files=files)
+        print(f"Sending PUT request to {self.bulk_unlock_url} with TransactionId: {self.transaction_id}")
+        response = requests.put(self.bulk_unlock_url, headers=headers, files=files)
         if response.status_code == 200:
             print("PUT request successful")
             try:
