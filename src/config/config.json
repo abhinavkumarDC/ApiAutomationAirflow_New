@@ -14,6 +14,26 @@
   "api_push_bulk_csv_url": "https://stagefirebase.1984.rocks/notification/push_bulk_csv",
   "api_bulk_custom_notification_v4_url": "https://betaapi.1984.rocks/api/v3/lifecycle/dem_DATACULTR/bulk_custom_notification_v4/",
   "input_dir": "/home/abhinavkumar/PycharmProjects/ApiAutomationAirflow/input_file_csv",
-  "output_dir": "/home/abhinavkumar/PycharmProjects/ApiAutomationAirflow/Output"
+  "output_dir": "/home/abhinavkumar/PycharmProjects/ApiAutomationAirflow/Output",
+  "get_passcode_url": "https://betaapi.1984.rocks/api/v2/lifecycle/dem_DATACULTR/get_device_passcode/",
+  "get_release_url": "https://betaapi.1984.rocks/api/v2/dem_DATACULTR/release/",
+  "bulk_release_url": "https://betaapi.1984.rocks/api/v3/dem_DATACULTR/bulk_release/",
+  "release_csv_file_path": "/home/akshat/PyCharm Projects/ApiAutomationAirflow_New/input_file_csv/Release_File.csv",
+  "cancel_release_url": "https://betaapi.1984.rocks/api/v4/dem_DATACULTR/cancel_soft_release_device/",
+  "device_status_url": "https://recordstage.1984.rocks/search/v1/devicestatus/DATACULTR/",
+  "registration_report_url": "https://recordstage.1984.rocks/search/v2/registration/118/",
+  "current_status_url": "https://recordstage.1984.rocks/search/v2/current_status_list/118/",
+  "device_logs_url": "https://recordstage.1984.rocks/search/v2/deviceloghistory/",
+  "last_online_status_url": "https://recordstage.1984.rocks/search/v1/get_last_online/",
+  "get_all_nudges_url": "https://betaapi.1984.rocks/api/v3/lifecycle/dem_DATACULTR/get_all_nudges/",
+  "create_nudge_url": "https://betaapi.1984.rocks/api/v2/lifecycle/dem_DATACULTR/createnewpolicy/",
+  "apply_unlock_url": "https://betaapi.1984.rocks/api/v2/lifecycle/dem_DATACULTR/applyunlock/",
+  "bulk_unlock_url": "https://betaapi.1984.rocks/api/v3/lifecycle/dem_DATACULTR/bulkapplyunlock/",
+  "unlock_csv_file_path": "/home/akshat/PyCharm Projects/ApiAutomationAirflow_New/input_file_csv/Release_File.csv",
+  "bulk_lock_url": "https://betaapi.1984.rocks/api/v3/lifecycle/dem_DATACULTR/bulkapplylock/",
+  "lock_csv_file": "/home/akshat/PyCharm Projects/ApiAutomationAirflow_New/input_file_csv/Release_File.csv",
+  "get_nudge_url": "https://betaapi.1984.rocks/api/v2/lifecycle/dem_DATACULTR/get_nudges/",
+  "bulk_apply_nudge_url": "https://betaapi.1984.rocks/api/v2/lifecycle/dem_DATACULTR/bulkapplynudge/"
 }
+
 

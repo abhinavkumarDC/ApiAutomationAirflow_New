@@ -14,13 +14,13 @@ class ApplyNotificationBulk:
         self.input_csv_file_path = os.path.join(self.input_dir, 'v4.csv')
 
     def fetch_and_store_get_notification_data(self):
-        data = self.helpers.fetch_data_from_api(self.fetch_api_url, self.token)
+        data = self.helpers.fetch_notification_data_from_api(self.fetch_api_url, self.token)
         if data:
             json_filename = os.path.join(self.output_dir, 'applyNotificationData.json')
             csv_filename = os.path.join(self.output_dir, 'applyNotificationData.csv')
             self.helpers.store_data_as_json(data, json_filename)
             self.helpers.store_data_as_csv(data, csv_filename)
-            return self.helpers.get_random_notification_code(data)
+            return self.helpers.get_random_notification_all_code(data)
         return None
 
     def ensure_output_directory(self):

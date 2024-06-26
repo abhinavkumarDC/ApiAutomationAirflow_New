@@ -4,7 +4,7 @@ from utils.helpers import Helpers
 
 class BulkCustomNotification:
     def __init__(self, config, token):
-        self.fetch_api_url = config.api_get_all_notification_url
+        self.fetch_api_url = config.api_get_notification_url
         self.post_api_url = config.api_bulk_custom_notification_v4_url
         self.token = token
         self.input_dir = config.input_dir
@@ -14,7 +14,7 @@ class BulkCustomNotification:
         self.input_csv_file_path = os.path.join(self.input_dir, 'custom_notification_bulk_P29.csv')
 
     def fetch_and_store_get_notification_data(self):
-        data = self.helpers.fetch_data_from_api(self.fetch_api_url, self.token)
+        data = self.helpers.fetch_notification_data_from_api(self.fetch_api_url, self.token)
         if data:
             json_filename = os.path.join(self.output_dir, 'bulk_custom_notification_v4.json')
             csv_filename = os.path.join(self.output_dir, 'bulk_custom_notification_v4.csv')

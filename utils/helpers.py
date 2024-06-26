@@ -1,7 +1,9 @@
-import os   # Import the os module to interact with the operating system
+import os  # Import the os module to interact with the operating system
 import json
 import random
 import string
+import time
+
 import requests
 import pandas as pd
 
@@ -34,7 +36,7 @@ class Helpers:
         print(f"Data stored as csv in provided directory")
 
     @staticmethod
-    def get_random_notification_code(data):
+    def get_random_notification_all_code(data):
         if isinstance(data, list):
             codes = [item["notification_code"] for item in data if "notification_code" in item]
             if codes:
@@ -49,13 +51,43 @@ class Helpers:
             return None
 
     @staticmethod
+    def get_random_notification_code(data):
+        if isinstance(data, dict) and "results" in data:  # Check if data is a dictionary with a "results" key
+            codes = [item["code"] for item in data["results"] if "code" in item]
+            if codes:
+                code = random.choice(codes)
+                print(f"Selected random notification code: {code}")
+                return code
+            else:
+                print("No notification codes found in the data")
+                return None
+        else:
+            print("Data is not in the expected format")
+            return None
+
+    @staticmethod
+    def get_random_nudges_code(data):
+        if isinstance(data, dict) and "nudges" in data:  # Check if data is a dictionary with a "nudges" key
+            codes = [item["code"] for item in data["nudges"] if "code" in item]
+            if codes:
+                code = random.choice(codes)
+                print(f"Selected random nudge code: {code}")
+                return code
+            else:
+                print("No nudge codes found in the data")
+                return None
+        else:
+            print("Data is not in the expected format")
+            return None
+
+    @staticmethod
     def generate_random_transaction_id(length=20):
         transaction_id = ''.join(random.choices(string.ascii_letters + string.digits, k=length))
         print(f"Generated TransactionId: {transaction_id}")
         return transaction_id
 
     @staticmethod
-    def fetch_data_from_api(url, token):
+    def fetch_notification_data_from_api(url, token):
         headers = {
             'Authorization': f'Bearer {token}'
         }
@@ -79,11 +111,13 @@ class Helpers:
         }
         data = {
             # 'notification_code': notification_code # push_bulk_csv.py
-            'notification_code': notification_code,
+            'code': notification_code,
             'TransactionId': transaction_id
         }
-        print(f"Sending POST request to {api_url} with TransactionId: {transaction_id} and file: {files}")
-        # print(f"Sending POST request to {api_url} with notification_code: {notification_code} and TransactionId: {transaction_id}")
+        print(f"Sending POST request to {api_url} with TransactionId: {transaction_id} "
+              f"and file: {files} and code {notification_code}")
+        # print(f"Sending POST request to {api_url} with notification_code: {notification_code}
+        # and TransactionId: {transaction_id}")
         response = requests.post(api_url, headers=headers, files=files, data=data)
         if response.status_code == 200:
             print("POST request successful")
@@ -100,3 +134,54 @@ class Helpers:
             print(f"POST request failed: {response.status_code}")
             print(f"Response: {response.text}")
             return False
+
+    @staticmethod
+    def fetch_nudges_data_from_api(url, token):
+        headers = {
+            'Authorization': f'Bearer {token}'
+        }
+        print(f"Fetching data from {url} with token: {token}")
+        response = requests.get(url, headers=headers)
+        if response.status_code == 200:
+            print("Data fetched successfully")
+            return response.json()
+        elif response.status_code == 429:
+            retry_after = int(response.headers.get("Retry-After", 5))
+            print(f"Rate limited. Retrying after {retry_after} seconds...")
+            time.sleep(retry_after)
+            return url.fetch_nudges_data_from_api(url, token)  # Recursive call to retry
+        else:
+            print(f"Failed to fetch data: {response.status_code}")
+            print(f"Response: {response.text}")
+            return None
+
+    @staticmethod
+    def send_nudge_with_csv(api_url, token, policy_code, csv_file_path, transaction_id):
+        headers = {
+            'Authorization': f'Bearer {token}'
+        }
+        files = {
+            'file': open(csv_file_path, 'rb')
+        }
+        data = {
+            'policy_code': policy_code,
+            'TransactionId': transaction_id,
+            # 'policy_code': 'required_policy_code_here'  # Include the policy_code
+        }
+        print(f"Sending PUT request to {api_url} with code: {policy_code} and TransactionId: {transaction_id}")
+        response = requests.put(api_url, headers=headers, files=files, data=data)  # Changed to PUT method
+        if response.status_code == 200:
+            print("PUT request successful")
+            try:
+                print(f"Response: {response.json()}")
+            except json.JSONDecodeError:
+                print("Response is not in JSON format")
+                print(f"Response text: {response.text}")
+            return True  # Success
+        elif response.status_code == 464:
+            print(f"PUT request failed with status 464: {response.text}")
+            return False  # Specific failure
+        else:
+            print(f"PUT request failed: {response.status_code}")
+            print(f"Response: {response.text}")
+            return False  # General failure
