@@ -1,0 +1,9 @@
+{
+    "message": "policy has been created successfully",
+    "perform activity": {
+        "type": "nudge",
+        "action": "LW",
+        "url": "https://www.datacultr.com/"
+    },
+    "policy_code": "SDP842"
+}

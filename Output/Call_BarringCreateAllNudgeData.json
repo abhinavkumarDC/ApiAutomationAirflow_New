@@ -1,0 +1,8 @@
+{
+    "message": "policy has been created successfully",
+    "perform activity": {
+        "type": "nudge",
+        "action": "OC"
+    },
+    "policy_code": "SDP844"
+}

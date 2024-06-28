@@ -1,8 +1,70 @@
 {
-    "total": 1253,
+    "total": 1256,
     "page": 1,
     "size": 600,
     "results": [
+        {
+            "code": "SDN2280",
+            "lang": "en",
+            "actor": "DATACULTR",
+            "category": "Engage",
+            "notification": {
+                "tag": "PA",
+                "url": "https://www.datacultr.com/",
+                "title": "Test_Plain_With_Action202",
+                "show_at": "08:24:40",
+                "version": "6.1",
+                "cta_type": "url",
+                "show_date": "2024-06-27",
+                "action_btn": "Pay Now",
+                "description": "Test_Plain_With_Action_Description2",
+                "expiry_date": "2024-12-01T05:28:47.083000+00:00",
+                "notification_type": "plain_with_action",
+                "notification_txn_id": "b2c6902c-345e-11ef-b101-02c56507ca11"
+            },
+            "created_at": "2024-06-27T08:24:40.279372",
+            "updated_at": "2024-06-27T08:24:40.279372"
+        },
+        {
+            "code": "SDN2279",
+            "lang": "en",
+            "actor": "DATACULTR",
+            "category": "Engage",
+            "notification": {
+                "tag": "B",
+                "url": "https://www.datacultr.com/",
+                "title": "Test_Banner_Message971",
+                "banner": "https://marketplace.whmcs.com/product/2130/images/icon200-b5bf3a12359d3083970d9d241c1ee4e5.png",
+                "show_at": "08:24:39",
+                "version": "6.1",
+                "cta_type": "url",
+                "show_date": "2024-06-27",
+                "description": "Test_Banner_Message_Description2",
+                "notification_type": "banner",
+                "notification_txn_id": "b23987cc-345e-11ef-b101-02c56507ca11"
+            },
+            "created_at": "2024-06-27T08:24:39.355143",
+            "updated_at": "2024-06-27T08:24:39.355143"
+        },
+        {
+            "code": "SDN2278",
+            "lang": "en",
+            "actor": "DATACULTR",
+            "category": "Engage",
+            "notification": {
+                "tag": "ALERT",
+                "title": "Test_Alert_Message812",
+                "show_at": "08:24:38",
+                "version": "6.1",
+                "show_date": "2024-06-27",
+                "action_btn": "Okay",
+                "description": "Test_Alert_Message_Description2",
+                "notification_type": "alert",
+                "notification_txn_id": "b1acd49e-345e-11ef-b101-02c56507ca11"
+            },
+            "created_at": "2024-06-27T08:24:38.433128",
+            "updated_at": "2024-06-27T08:24:38.433128"
+        },
         {
             "code": "SDN2277",
             "lang": "en",
@@ -13936,81 +13998,6 @@
             },
             "created_at": "2024-04-25T13:28:33.724439",
             "updated_at": "2024-04-25T13:28:33.724439"
-        },
-        {
-            "code": "SDN1564",
-            "lang": "en",
-            "actor": "DATACULTR",
-            "category": "Remind",
-            "notification": {
-                "tag": "INA",
-                "url": "https://www.datacultr.com/",
-                "image": "https://marketplace.whmcs.com/product/2130/images/icon200-b5bf3a12359d3083970d9d241c1ee4e5.png",
-                "title": "Test Automation_Sell_InAppImage_722",
-                "show_at": "13:28:31",
-                "version": "6.1",
-                "cta_type": "url",
-                "hold_for": 5,
-                "btn1_name": "Cancel",
-                "btn2_name": "Next",
-                "show_date": "2024-04-25",
-                "btnbgcolor": "#F5222D",
-                "description": "Test Automation_Sell_InAppImage_Description_1",
-                "show_cancel": true,
-                "btntextcolor": "#ffffff",
-                "descTextColor": "#44474E",
-                "titleTextColor": "#1C1B1F",
-                "notification_type": "in_app_image",
-                "notification_txn_id": "b5b35492-0307-11ef-bc6b-02c56507ca11"
-            },
-            "created_at": "2024-04-25T13:28:31.995726",
-            "updated_at": "2024-04-25T13:28:31.995726"
-        },
-        {
-            "code": "SDN1563",
-            "lang": "en",
-            "actor": "DATACULTR",
-            "category": "Remind",
-            "notification": {
-                "tag": "BA",
-                "url": "https://www.datacultr.com/",
-                "title": "Test Automation_Sell_BannerWithAction_525",
-                "banner": "https://marketplace.whmcs.com/product/2130/images/icon200-b5bf3a12359d3083970d9d241c1ee4e5.png",
-                "show_at": "13:28:30",
-                "version": "6.1",
-                "cta_type": "url",
-                "show_date": "2024-04-25",
-                "action_btn": "Next",
-                "description": "Test Automation_Sell_BannerWithAction_Description_2",
-                "expiry_date": "2024-04-29T18:30:00+00:00",
-                "notification_type": "banner_with_actions",
-                "notification_txn_id": "b4c2089e-0307-11ef-bc6b-02c56507ca11"
-            },
-            "created_at": "2024-04-25T13:28:30.412554",
-            "updated_at": "2024-04-25T13:28:30.412554"
-        },
-        {
-            "code": "SDN1562",
-            "lang": "en",
-            "actor": "DATACULTR",
-            "category": "Remind",
-            "notification": {
-                "tag": "BA",
-                "url": "https://www.datacultr.com/",
-                "title": "Test Automation_Sell_BannerWithAction_129",
-                "banner": "https://marketplace.whmcs.com/product/2130/images/icon200-b5bf3a12359d3083970d9d241c1ee4e5.png",
-                "show_at": "13:28:28",
-                "version": "6.1",
-                "cta_type": "url",
-                "show_date": "2024-04-25",
-                "action_btn": "Next",
-                "description": "Test Automation_Sell_BannerWithAction_Description_1",
-                "expiry_date": "2024-04-29T18:30:00+00:00",
-                "notification_type": "banner_with_actions",
-                "notification_txn_id": "b3d73c4c-0307-11ef-bc6b-02c56507ca11"
-            },
-            "created_at": "2024-04-25T13:28:28.873152",
-            "updated_at": "2024-04-25T13:28:28.873152"
         }
     ]
 }

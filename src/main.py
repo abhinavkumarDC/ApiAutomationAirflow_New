@@ -62,7 +62,7 @@ class OdysseyManager:
         self.bulk_apply_nudge_url = config.bulk_apply_nudge_url
         self.token = None
         self.transaction_id = None
-        self.nudge_type = None
+        self.nudge_types = []
         self.policy_code = None
         # print("OdysseyManager initialized")
 
@@ -73,7 +73,7 @@ class OdysseyManager:
             if self.token is None:
                 print("Failed to obtain token. Exiting.")
                 return False
-            print("Token generated successfully")
+            print("Token generated successfully\n--")
         return True
 
     def run_get_all_notification(self):
@@ -106,11 +106,15 @@ class OdysseyManager:
         apply_bulk_nudge.run()
         print("applied nudges on devices")
 
+    def set_nudge_types(self, *nudge_types):
+        self.nudge_types = nudge_types
+
     def run_create_nudges(self):
-        print("create nudges")
-        create_nudges = Create_nudges(self.create_nudge_url, self.token, self.nudge_type, self.output_dir)
-        create_nudges.fetch_and_store_created_allNudges_data()
-        print("created nudges successfully")
+        for nudge_type in self.nudge_types:
+            print(f"--\nCreating nudges for type: {nudge_type}")
+            create_nudges = Create_nudges(self.create_nudge_url, self.token, nudge_type, self.output_dir)
+            create_nudges.fetch_and_store_created_allNudges_data()
+            print(f"Created nudges for type: {nudge_type} successfully")
 
     def run_apply_unlock(self):
         print("apply unlock on device")
@@ -224,6 +228,9 @@ def main():
         return
 
     manager.ensure_output_directory()
+
+    # Set the nudge type
+    manager.set_nudge_types('Loan_Wallpaper_Block', 'Application_Block', 'Call_Barring')
 
     # Run desired operations
     manager.run_create_nudges()

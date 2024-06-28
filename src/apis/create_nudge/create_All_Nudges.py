@@ -6,7 +6,7 @@ from utils.helpers import Helpers
 
 class Create_nudges:
     def __init__(self, create_nudge_url, token, nudge_type, output_dir):
-        print(f"--\nInitializing create all nudge API for message type: {nudge_type}")
+        print(f"Initializing create all nudge API for message type: {nudge_type}")
         self.create_nudge_url = create_nudge_url
         self.token = token
         self.nudge_type = nudge_type

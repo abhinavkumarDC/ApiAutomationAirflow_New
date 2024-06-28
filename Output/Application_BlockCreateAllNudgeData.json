@@ -1,0 +1,12 @@
+{
+    "message": "policy has been created successfully",
+    "perform activity": {
+        "type": "nudge",
+        "action": "AB",
+        "pkg": [
+            "youtube.apk",
+            "chrome.apk"
+        ]
+    },
+    "policy_code": "SDP843"
+}

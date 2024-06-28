@@ -33,6 +33,7 @@
   "lock_csv_file": "/home/akshat/PyCharm Projects/ApiAutomationAirflow_New/input_file_csv/Release_File.csv",
   "get_nudge_url": "https://betaapi.1984.rocks/api/v2/lifecycle/dem_DATACULTR/get_nudges/",
   "bulk_apply_nudge_url": "https://betaapi.1984.rocks/api/v2/lifecycle/dem_DATACULTR/bulkapplynudge/"
+
 }
 
 
