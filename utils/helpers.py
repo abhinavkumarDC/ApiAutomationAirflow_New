@@ -111,7 +111,8 @@ class Helpers:
         }
         data = {
             # 'notification_code': notification_code # push_bulk_csv.py
-            'code': notification_code,
+            ''
+            '': notification_code,
             'TransactionId': transaction_id
         }
         print(f"Sending POST request to {api_url} with TransactionId: {transaction_id} "

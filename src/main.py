@@ -56,7 +56,6 @@ class OdysseyManager:
         self.create_nudge_url = config.create_nudge_url
         self.apply_unlock_url = config.apply_unlock_url
         self.bulk_unlock_url = config.bulk_unlock_url
-        self.unlock_csv_file_path = config.unlock_csv_file_path
         self.bulk_lock_url = config.bulk_lock_url
         self.lock_csv_file = config.lock_csv_file
         self.get_nudge_url = config.get_nudge_url
@@ -91,14 +90,14 @@ class OdysseyManager:
 
     def run_get_all_nudges(self):
         print("get the details of all nudges")
-        get_all_nudge = Get_all_Nudges(self.get_all_nudges_url, self.token)
-        get_all_nudge.fetch_data_from_api()
-        print("received details of all nudges")
+        get_all_nudge = Get_all_Nudges(self.get_all_nudges_url, self.token, self.output_dir)
+        get_all_nudge.fetch_and_store_get_all_nudge_data()
+        print("Get All nudge api executed and data stored in provided directory")
 
     def run_get_nudges(self):
         print("Get nudges request")
-        get_nudge = Get_nudges(self.get_nudge_url, self.token)
-        get_nudge.get_nudges()
+        get_nudge = Get_nudges(self.get_nudge_url, self.token, self.output_dir)
+        get_nudge.fetch_and_store_get_nudge_data()
         print("received nudges")
 
     def run_apply_bulk_nudge(self):
@@ -109,8 +108,8 @@ class OdysseyManager:
 
     def run_create_nudges(self):
         print("create nudges")
-        create_nudges = Create_nudges(self.create_nudge_url, self.token, self.nudge_type)
-        create_nudges.create_nudges_from_api()
+        create_nudges = Create_nudges(self.create_nudge_url, self.token, self.nudge_type, self.output_dir)
+        create_nudges.fetch_and_store_created_allNudges_data()
         print("created nudges successfully")
 
     def run_apply_unlock(self):
@@ -121,14 +120,13 @@ class OdysseyManager:
 
     def run_bulk_unlock_devices(self):
         print("unlock the devices in bulk")
-        bulk_unlock = Bulk_unlock(self.bulk_unlock_url, self.token, self.unlock_csv_file_path,
-                                  self.transaction_id)
+        bulk_unlock = Bulk_unlock(self.config, self.token)
         bulk_unlock.bulk_apply_unlock()
         print("unlock all the imei")
 
     def run_bulk_lock_devices(self):
         print("bulk lock has been triggered on devices")
-        bulk_lock = Bulk_apply_lock(self.bulk_lock_url, self.token, self.lock_csv_file, self.transaction_id)
+        bulk_lock = Bulk_apply_lock(self.config, self.token)
         bulk_lock.apply_bulk_lock_v3()
         print("bulk lock has been applied on device")
 
@@ -169,8 +167,7 @@ class OdysseyManager:
 
     def run_bulk_release_devices(self):
         print("release the devices in bulk")
-        bulk_release = Bulk_release_devices(self.bulk_release_url, self.token, self.release_csv_file_path,
-                                            self.transaction_id)
+        bulk_release = Bulk_release_devices(self.config, self.token)
         bulk_release.send_device_data_in_csv()
         print("release all the imei's")
 
@@ -229,28 +226,7 @@ def main():
     manager.ensure_output_directory()
 
     # Run desired operations
-    # manager.run_get_notification()
-    # manager.run_get_all_notification()
-    # manager.run_create_notification()
-    # manager.run_apply_notification_bulk()
-    # manager.run_push_bulk_csv()
-    # manager.run_api_bulk_custom_notification_v4()
-    # manager.run_get_passcode()
-    # manager.run_release_device()
-    manager.run_bulk_release_devices()
-    # manager.run_cancel_release()
-    # manager.run_device_status()
-    # manager.run_registeration_file()
-    # manager.run_current_status()
-    # manager.run_device_log()
-    # manager.run_get_all_nudges()
-    # manager.run_create_nudges()
-    # manager.run_apply_unlock()
-    # manager.run_bulk_unlock_devices()
-    #manager.run_get_nudges()
-    #manager.run_apply_bulk_nudge()
-    # manager.run_bulk_lock_devices()
-    # manager.run_last_online()
+    manager.run_create_nudges()
     print(f"--\nAll operations completed")
 
 

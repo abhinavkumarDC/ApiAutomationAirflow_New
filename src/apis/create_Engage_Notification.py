@@ -85,4 +85,3 @@ class CreateNotification:
             print(f"Engage notification created and data stored for type: {self.notification_type}")
         else:
             print(f"No data fetched for {self.notification_type}")
-

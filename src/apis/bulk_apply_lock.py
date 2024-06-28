@@ -1,23 +1,31 @@
+import os
+
 import requests
 import json
 
+from utils.helpers import Helpers
+
 
 class Bulk_apply_lock:
-    def __init__(self, bulk_lock_url, token, lock_csv_file, transaction_id):
-        self.bulk_lock_url = bulk_lock_url
+    def __init__(self, config, token):
+        self.bulk_lock_url = config.bulk_lock_url
         self.token = token
-        self.lock_csv_file = lock_csv_file
-        self.transaction_id = transaction_id
+        self.input_dir = config.input_dir
+        self.input_csv_file_path = os.path.join(self.input_dir, 'Unlock_File_with_sample_2imei.csv')
 
     def apply_bulk_lock_v3(self):
         headers = {
             'Authorization': f'Bearer {self.token}'
         }
+
+        # Generate a random TransactionId
+        transaction_id = Helpers.generate_random_transaction_id()
+
         files = {
-            'file': open(self.lock_csv_file, 'rb'),
-            'TransactionId': self.transaction_id
+            'file': open(self.input_csv_file_path, 'rb'),
+            'TransactionId': (None, transaction_id)  # Adjusted to use tuple format for files dict
         }
-        print(f"Sending PUT request to {self.bulk_lock_url} with TransactionId: {self.transaction_id}")
+        print(f"Sending PUT request to {self.bulk_lock_url} with TransactionId: {transaction_id}")
         response = requests.put(self.bulk_lock_url, headers=headers, files=files)
         if response.status_code == 200:
             print("PUT request successful")
