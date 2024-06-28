@@ -4,6 +4,7 @@ import uuid
 
 class Apply_unlock:
     def __init__(self, apply_unlock_url, token):
+        print(f"--\nInitializing Apply_unlock api with endpoint: {apply_unlock_url}")
         self.apply_unlock_url = apply_unlock_url
         self.token = token
 

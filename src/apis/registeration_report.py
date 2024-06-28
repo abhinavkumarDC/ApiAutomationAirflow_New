@@ -3,6 +3,7 @@ import requests
 
 class Registration_report:
     def __init__(self, registration_report_url):
+        print(f"--\nInitializing Registration_report api with endpoint: {registration_report_url}")
         self.registration_report_url = registration_report_url
 
     def registration_report_imei(self):

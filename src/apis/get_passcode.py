@@ -3,6 +3,7 @@ import requests
 
 class Get_Passcode:
     def __init__(self, get_passcode_url, token):
+        print(f"--\nInitializing Get_Passcode API {get_passcode_url}")
         self.get_passcode_url = get_passcode_url
         self.token = token
         # self.output_dir = output_dir

@@ -4,6 +4,7 @@ import requests
 class Cancel_release:
 
     def __init__(self, cancel_release_url, token):
+        print(f"--\nInitializing Cancel_release api with endpoint: {cancel_release_url}")
         self.cancel_release_url = cancel_release_url
         self.token = token
 

@@ -4,6 +4,7 @@ from utils.helpers import Helpers
 
 class BulkCustomNotification:
     def __init__(self, config, token):
+        print(f"--\nInitializing BulkCustomNotification api with endpoint: {config.api_bulk_custom_notification_v4_url}")
         self.fetch_api_url = config.api_get_notification_url
         self.post_api_url = config.api_bulk_custom_notification_v4_url
         self.token = token

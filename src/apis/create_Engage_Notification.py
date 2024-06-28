@@ -6,7 +6,7 @@ import os
 
 class CreateNotification:
     def __init__(self, create_url, token, notification_type, output_dir):
-        print(f"--\nInitializing create notification API for message type: {notification_type}")
+        print(f"--\nInitializing CreateNotification api with endpoint: {create_url}")
         self.create_url = create_url
         self.token = token
         self.notification_type = notification_type

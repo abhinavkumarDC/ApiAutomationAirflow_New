@@ -3,6 +3,7 @@ import requests
 
 class Release_device:
     def __init__(self, get_release_url, token):
+        print(f"--\nInitializing Release_device api with endpoint: {get_release_url}")
         self.get_release_url = get_release_url
         self.token = token
 

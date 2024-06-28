@@ -3,6 +3,7 @@ import requests
 
 class Current_status_report:
     def __init__(self, current_status_url):
+        print(f"--\nInitializing Current_status_report api with endpoint: {current_status_url}")
         self.current_status_url = current_status_url
 
     def current_Status(self):

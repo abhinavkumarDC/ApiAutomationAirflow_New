@@ -3,6 +3,7 @@ import requests
 
 class Device_logs:
     def __init__(self, device_logs_url):
+        print(f"--\nInitializing Device_logs api with endpoint: {device_logs_url}")
         self.device_logs_url = device_logs_url
 
     def device_log_history(self):

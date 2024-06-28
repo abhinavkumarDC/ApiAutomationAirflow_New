@@ -7,6 +7,7 @@ from utils.helpers import Helpers
 
 class Get_nudges:
     def __init__(self, get_nudge_url, token, output_dir):
+        print(f"--\nInitializing Get_nudges API {get_nudge_url}")
         self.get_nudge_url = get_nudge_url
         self.token = token
         self.output_dir = output_dir

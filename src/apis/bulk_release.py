@@ -6,6 +6,7 @@ from utils.helpers import Helpers
 
 class Bulk_release_devices:
     def __init__(self, config, token):
+        print(f"--\nInitializing Bulk_release_devices api with endpoint: {config.bulk_release_url}")
         self.api_bulk_release_url = config.bulk_release_url
         self.token = token
         self.input_dir = config.input_dir

@@ -3,6 +3,7 @@ import requests
 
 class Device_status:
     def __init__(self, device_status_url):
+        print(f"--\nInitializing Device_status api with endpoint: {device_status_url}")
         self.device_status_url = device_status_url
 
     def device_Status_of_imei(self):

@@ -1,2 +1,2 @@
 message,perform activity,policy_code
-policy has been created successfully,"{'type': 'nudge', 'action': 'AB', 'pkg': ['youtube.apk', 'chrome.apk']}",SDP843
+policy has been created successfully,"{'type': 'nudge', 'action': 'AB', 'pkg': ['youtube.apk', 'chrome.apk']}",SDP846

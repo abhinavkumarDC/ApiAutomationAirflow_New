@@ -1220,6 +1220,34 @@
         {
             "title": "Test Automation Nudges_CB_2090",
             "code": "SDP833"
+        },
+        {
+            "title": "Test LWB Nudge 518",
+            "code": "SDP838"
+        },
+        {
+            "title": "Test LWB Nudge 36",
+            "code": "SDP839"
+        },
+        {
+            "title": "Test AB 691",
+            "code": "SDP840"
+        },
+        {
+            "title": "Test CB 876",
+            "code": "SDP841"
+        },
+        {
+            "title": "Test LWB Nudge 201",
+            "code": "SDP842"
+        },
+        {
+            "title": "Test AB 924",
+            "code": "SDP843"
+        },
+        {
+            "title": "Test CB 658",
+            "code": "SDP844"
         }
     ]
 }

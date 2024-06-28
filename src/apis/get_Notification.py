@@ -5,7 +5,7 @@ import os
 
 class GetNotification:
     def __init__(self, url, token, output_dir):
-        print(f"--\nInitializing Get Notification api with endpoint: {url}")
+        print(f"--\nInitializing GetNotification api with endpoint: {url}")
         self.url = url
         self.token = token
         self.output_dir = output_dir

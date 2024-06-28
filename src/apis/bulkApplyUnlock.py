@@ -7,6 +7,7 @@ from utils.helpers import Helpers
 
 class Bulk_unlock:
     def __init__(self, config, token):
+        print(f"--\nInitializing Bulk_unlock api with endpoint: {config.bulk_unlock_url}")
         self.bulk_unlock_url = config.bulk_unlock_url
         self.token = token
         self.input_dir = config.input_dir

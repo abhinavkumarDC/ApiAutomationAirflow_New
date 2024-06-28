@@ -229,11 +229,31 @@ def main():
 
     manager.ensure_output_directory()
 
+    # Run desired operations
+    manager.run_get_notification()
+    manager.run_get_all_notification()
+    manager.run_create_notification()
+    manager.run_apply_notification_bulk()
+    manager.run_push_bulk_csv()
+    manager.run_api_bulk_custom_notification_v4()
+    manager.run_get_nudges()
+    manager.run_get_all_nudges()
     # Set the nudge type
     manager.set_nudge_types('Loan_Wallpaper_Block', 'Application_Block', 'Call_Barring')
-
-    # Run desired operations
     manager.run_create_nudges()
+    manager.run_apply_bulk_nudge()
+    manager.run_bulk_lock_devices()
+    manager.run_get_passcode()  # offline unlock
+    manager.run_apply_unlock()
+    manager.run_bulk_unlock_devices()
+    manager.run_release_device()
+    manager.run_bulk_release_devices()
+    manager.run_cancel_release()
+    manager.run_device_status()
+    manager.run_registeration_file()
+    manager.run_current_status()  # Getting status code 400 {"message":"imei_list is required"}
+    manager.run_device_log()
+    manager.run_last_online()
     print(f"--\nAll operations completed")
 
 

@@ -4,6 +4,7 @@ from utils.helpers import Helpers
 
 class Apply_bulk_nudge:
     def __init__(self, config, token):
+        print(f"--\nInitializing Apply_bulk_nudge api with endpoint: {config.bulk_apply_nudge_url}")
         self.fetch_api_url = config.get_nudge_url
         self.post_api_url = config.bulk_apply_nudge_url
         self.token = token

@@ -8,6 +8,7 @@ from utils.helpers import Helpers
 
 class Bulk_apply_lock:
     def __init__(self, config, token):
+        print(f"--\nInitializing Bulk_apply_lock api with endpoint: {config.bulk_lock_url}")
         self.bulk_lock_url = config.bulk_lock_url
         self.token = token
         self.input_dir = config.input_dir

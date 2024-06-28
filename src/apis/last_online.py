@@ -3,6 +3,7 @@ import requests
 
 class Last_online_status:
     def __init__(self, last_online_status_url):
+        print(f"---\nInitializing Last_online_status api with endpoint: {last_online_status_url}")
         self.last_online_status_url = last_online_status_url
 
     def get_last_online(self):

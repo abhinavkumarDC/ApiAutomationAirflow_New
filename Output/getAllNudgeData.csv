@@ -1,4 +1,11 @@
 id,type,actor,action_code,dem_policy,version,description,perform_activity,reaction_id,created_by,created,modified,language,title
+844,nudge,DATACULTR,SDP844,1576,2,Test CB 2,"{'type': 'nudge', 'action': 'OC'}",,DATACULTR,2024-06-28T07:27:03.988934,2024-06-28T07:27:03.988946,en,Test CB 658
+843,nudge,DATACULTR,SDP843,1575,2,Test AB 2,"{'type': 'nudge', 'action': 'AB', 'pkg': ['youtube.apk', 'chrome.apk']}",,DATACULTR,2024-06-28T07:27:01.960016,2024-06-28T07:27:01.960028,en,Test AB 924
+842,nudge,DATACULTR,SDP842,1574,2,Test LWB Nudge 2,"{'type': 'nudge', 'action': 'LW', 'url': 'https://www.datacultr.com/'}",,DATACULTR,2024-06-28T07:27:00.303830,2024-06-28T07:27:00.303841,en,Test LWB Nudge 201
+841,nudge,DATACULTR,SDP841,1573,2,Test CB 2,"{'type': 'nudge', 'action': 'OC'}",,DATACULTR,2024-06-28T07:24:25.451241,2024-06-28T07:24:25.451253,en,Test CB 876
+840,nudge,DATACULTR,SDP840,1572,2,Test AB 2,"{'type': 'nudge', 'action': 'AB', 'pkg': ['youtube.apk', 'chrome.apk']}",,DATACULTR,2024-06-28T07:24:23.842628,2024-06-28T07:24:23.842639,en,Test AB 691
+839,nudge,DATACULTR,SDP839,1571,2,Test LWB Nudge 2,"{'type': 'nudge', 'action': 'LW', 'url': 'https://www.datacultr.com/'}",,DATACULTR,2024-06-28T07:24:22.178849,2024-06-28T07:24:22.178860,en,Test LWB Nudge 36
+838,nudge,DATACULTR,SDP838,1570,2,Test LWB Nudge 2,"{'type': 'nudge', 'action': 'LW', 'url': 'https://www.datacultr.com/'}",,DATACULTR,2024-06-28T07:13:31.384970,2024-06-28T07:13:31.384982,en,Test LWB Nudge 518
 833,nudge,DATACULTR,SDP833,1562,2,Test Automation CB Description_7059,"{'type': 'nudge', 'action': 'OC'}",,DATACULTR,2024-06-14T00:00:38.859094,2024-06-14T00:00:38.859106,en,Test Automation Nudges_CB_2090
 832,nudge,DATACULTR,SDP832,1561,2,Test Automation CB Description_3027,"{'type': 'nudge', 'action': 'OC'}",,DATACULTR,2024-06-14T00:00:36.070953,2024-06-14T00:00:36.070969,en,Test Automation Nudges_CB_7321
 831,nudge,DATACULTR,SDP831,1560,2,Test Automation_Nudges_AB_Description_2,"{'type': 'nudge', 'action': 'AB', 'pkg': ['com.google.android.youtube']}",,DATACULTR,2024-06-14T00:00:33.299082,2024-06-14T00:00:33.299095,en,Test Automation Nudges_AB_382
